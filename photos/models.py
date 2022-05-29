@@ -4,20 +4,32 @@ from django.db import models
 # Create your models here.
 class Location(models.Model):
   location_name = models.CharField(max_length=50, unique='True')
-
-  def __str__(self):
-    return self.location_name
-
+  
   class Meta:
     ordering = ["location_name"]
     verbose_name = "Location"
     verbose_name_plural = "Locations"
+
+  def __str__(self):
+    return self.location_name
+
+  def save_location(self):
+    self.save()
+
+  def delete_location(self):
+    self.delete()
 
 class Category(models.Model):
   category_name = models.CharField(max_length=50, unique='True')
   
   def __str__(self):
     return self.category_name
+
+  def save_category(self):
+    self.save()
+
+  def delete_category(self):
+    self.delete()
 
   class Meta:
     ordering = ["category_name"]
@@ -36,3 +48,9 @@ class Image(models.Model):
     ordering = ["published_date"]
     verbose_name = "Image"
     verbose_name_plural = "Images"
+
+  def save_image(self):
+    self.save()
+  
+  def delete_image(self):
+    self.delete()
