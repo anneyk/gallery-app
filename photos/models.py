@@ -60,6 +60,9 @@ class Image(models.Model):
   def get_image_by_id(cls):
     images = cls.objects.get(pk=id)
     return images
+      
+  def summary(self):
+    return self.image_description[:100]+" ......"
 
 
 @classmethod

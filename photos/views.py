@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import Location, Category, Image
 # Create your views here.
 def index(request):
-  gallery = Image.objects.all()
+  gallery = Image.objects.all()[:6]
   return render(request,'index.html',{'gallery':gallery})
 
 def image_description(request,image_id):
