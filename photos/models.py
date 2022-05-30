@@ -1,4 +1,3 @@
-from unicodedata import category
 from django.db import models
 
 # Create your models here.
@@ -52,8 +51,16 @@ class Image(models.Model):
   def save_image(self):
     self.save()
   
+  def published_date_pretty(self):
+    return self.published_date.strftime('%b %e %Y')
+
   def delete_image(self):
     self.delete()
+
+  def get_image_by_id(cls):
+    images = cls.objects.get(pk=id)
+    return images
+
 
 @classmethod
 def search_by_category(cls,search_term):

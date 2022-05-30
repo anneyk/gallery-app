@@ -22,6 +22,10 @@ def search_category(request):
         
     return render(request, 'search.html', {"message":message})
 
+def gallery(request):
+  gallery = Image.objects.all()
+  return render(request, 'gallery.html', {"gallery":gallery})
+
 def travels(request):
   travels_category = Category.objects.get(pk=1)
   travels = Image.objects.all().filter(category=travels_category)
