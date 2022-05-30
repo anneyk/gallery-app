@@ -48,9 +48,14 @@ class Image(models.Model):
     ordering = ["published_date"]
     verbose_name = "Image"
     verbose_name_plural = "Images"
-
+  
   def save_image(self):
     self.save()
   
   def delete_image(self):
     self.delete()
+
+@classmethod
+def search_by_category(cls,search_term):
+  searched_images = cls.objects.filter(category__icontains=search_term)
+  return searched_images
