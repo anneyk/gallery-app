@@ -26,13 +26,13 @@ SECRET_KEY = 'django-insecure-!=ohwc!+2(so*5#+*10fc^e^8@*3ou1a5z1+js+8a1$l&ok$4p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['anneys-gallery.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','anneys-gallery.herokuapp.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'images.apps.ImagesConfig',
+    'images',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,10 +80,8 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gallery',
-        'USER': 'annet',
-        'PASSWORD': 'anneywan5',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
